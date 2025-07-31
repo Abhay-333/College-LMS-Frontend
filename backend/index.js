@@ -19,7 +19,8 @@ const app = express();
 // and fall back to a local URL for development.
 // For production, you might want to hardcode your final domain.
 const allowedOrigins = [
-  "https://college-lms-2.onrender.com/", // Your existing origin
+  // "https://college-lms-2.onrender.com/", // Your existing origin
+  "https://college-lms.vercel.app", // Added your new frontend Vercel URL
   process.env.FRONTEND_URL, // A custom env variable you can set on Vercel
   `https://${process.env.VERCEL_URL}`, // Vercel's automatic deployment URL
   "http://localhost:5173" // For local development testing
@@ -32,6 +33,7 @@ app.use(
     origin: (origin, callback) => {
       // Allow requests with no origin (like mobile apps or curl requests)
       if (!origin) return callback(null, true);
+      // Check if the origin is in our allowed list
       if (allowedOrigins.indexOf(origin) === -1) {
         const msg = `The CORS policy for this site does not allow access from the specified Origin: ${origin}`;
         return callback(new Error(msg), false);
