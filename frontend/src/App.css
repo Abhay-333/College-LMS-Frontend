@@ -1,0 +1,50 @@
+@font-face {
+  font-family: "GilroyHeavy";
+  src: url(./Resources/Gilroy-FREE/Gilroy-ExtraBold.otf);
+}
+
+@font-face {
+  font-family: "GilroyLight";
+  src: url(./Resources/Gilroy-FREE/Gilroy-Light.otf);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "GilroyLight";
+  /* cursor: none; */
+}
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+}
+
+.GilroyHeavy {
+  font-family: "GilroyHeavy";
+}
+
+.heroText {
+  position: relative;
+  /* top: 50%;
+  left: 50%;
+  transform: translate(-65%, -300%);    right left and top and bottom */
+  /* width: 80%; */
+  color: transparent;
+}
+
+.heroText::after {
+  z-index: 99;
+  content: "🚀 Empower Your Learning Journey";
+  color: transparent;
+  -webkit-text-stroke: 2px black;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50.1%, -46%);
+  /* mix-blend-mode: difference; */
+  width: 100%;
+  color: white;
+}
