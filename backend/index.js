@@ -13,7 +13,7 @@ app.use(express.json());
 app.use(cookieParser());
 app.use(
   cors({
-    origin: "https://college-lms-2.onrender.com/",
+    origin: "https://college-lms.vercel.app/",
     credentials: true,
   })
 );

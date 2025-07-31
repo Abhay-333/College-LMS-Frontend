@@ -6,7 +6,7 @@ export const dataContext = createContext();
 
 function UserContext({ children }) {
   const navigation = useNavigate();
-  const serverUrl = "https://college-lms-1.onrender.com/";
+  const serverUrl = "https://college-lms.vercel.app/";
   const [userData, setUserData] = useState(null);
   const getUserData = async () => {
     try {
