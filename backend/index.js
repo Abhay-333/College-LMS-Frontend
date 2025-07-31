@@ -19,7 +19,7 @@ const app = express();
 // and fall back to a local URL for development.
 // For production, you might want to hardcode your final domain.
 const allowedOrigins = [
-  // "https://college-lms-2.onrender.com/", // Your existing origin
+  "https://college-lms-2.onrender.com/", // Your existing origin
   "https://college-lms.vercel.app", // Added your new frontend Vercel URL
   process.env.FRONTEND_URL, // A custom env variable you can set on Vercel
   `https://${process.env.VERCEL_URL}`, // Vercel's automatic deployment URL
