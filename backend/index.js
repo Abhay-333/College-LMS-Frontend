@@ -15,12 +15,9 @@ dotenv.config();
 const app = express();
 
 // Set up CORS dynamically for Vercel environments.
-// We use the VERCEL_URL environment variable (which Vercel provides automatically)
-// and fall back to a local URL for development.
-// For production, you might want to hardcode your final domain.
 const allowedOrigins = [
-  // "https://college-lms-2.onrender.com/", // Your existing origin
-  "https://college-lms.vercel.app", // Added your new frontend Vercel URL
+  "https://college-lms-2.onrender.com/", // Your existing origin
+  "https://college-lms.vercel.app", // Your new frontend Vercel URL
   process.env.FRONTEND_URL, // A custom env variable you can set on Vercel
   `https://${process.env.VERCEL_URL}`, // Vercel's automatic deployment URL
   "http://localhost:5173" // For local development testing
@@ -49,12 +46,15 @@ app.use(
 // The `app.listen` block won't run.
 dbConnection();
 
-app.use("/", authRouter);
+// CRITICAL CHANGE: Use the authRouter with the "/api" prefix.
+// This ensures that all routes in authRouter are mounted under "/api".
+app.use("/api", authRouter);
 
-// CRITICAL CHANGE: Export the app instance directly.
+// IMPORTANT: Do NOT have a duplicate authRouter mounting at "/"
+// app.use("/", authRouter); // If this line exists, remove it.
+
 // Vercel's builder will handle listening on the correct port and routing.
 export default app;
-
 
 // import dotenv from "dotenv";
 // import express from "express";
