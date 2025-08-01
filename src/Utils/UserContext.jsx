@@ -16,7 +16,8 @@ function UserContext({ children }) {
       console.log(data);
       setUserData(data);
     } catch (err) {
-      console.log(err)
+      console.log("getUserData error:", err);
+      // Temporarily comment out the redirect to debug
       navigation("/signIn");
     }
   };
