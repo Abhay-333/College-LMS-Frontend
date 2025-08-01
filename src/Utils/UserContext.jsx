@@ -6,7 +6,7 @@ export const dataContext = createContext();
 
 function UserContext({ children }) {
   const navigation = useNavigate();
-  const serverUrl = "https://college-lms-backend.onrender.com/api/";
+  const serverUrl = import.meta.env.VITE_API_URL || "https://college-lms-backend.onrender.com/api";
   const [userData, setUserData] = useState(null);
   const getUserData = async () => {
     try {
