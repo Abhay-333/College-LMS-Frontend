@@ -12,6 +12,7 @@ const Home = () => {
     }
     fetchData();
   }, [getUserData]);
+  
   const moveCursor = (e) => {
     const xCoordinates = e.clientX - 770;
     const yCoordinates = e.clientY - 370;
@@ -69,7 +70,7 @@ const Home = () => {
             onMouseLeave={resetCursor}
             className="heroText2 relative text-white mix-blend-difference GilroyHeavy text-7xl font-light leading-none tracking-tight"
           >
-            Hi, &quot;{userData?.userName}&quot;,
+            Hi, &quot;{userData ? userData.userName : "User"}&quot;,
           </h1>
 
           <h1

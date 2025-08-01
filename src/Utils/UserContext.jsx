@@ -18,7 +18,7 @@ function UserContext({ children }) {
     } catch (err) {
       console.log("getUserData error:", err);
       // Temporarily comment out the redirect to debug
-      navigation("/signIn");
+      // navigation("/signIn");
     }
   };
   const value = {
